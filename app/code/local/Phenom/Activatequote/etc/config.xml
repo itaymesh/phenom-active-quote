@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Phenom_Activatequote>
+			<version>0.1</version>
+		</Phenom_Activatequote>
+	</modules>
+	<global>
+		<models>
+			<Activatequote>
+				<class>Phenom_Activatequote_Model</class>
+				<resourceModel>Activatequote_mysql4</resourceModel>
+			</Activatequote>
+			<Activatequote_mysql4>
+				<class>Phenom_Activatequote_Model_Mysql4</class>
+				<entities></entities>
+			</Activatequote_mysql4>
+		</models>
+		<blocks>
+			<Activatequote>
+				<class>Phenom_Activatequote_Block</class>
+			</Activatequote>
+		</blocks>
+		<events>
+			<sales_model_service_quote_submit_after>
+				<observers>
+					<phenom_activatequote_observer>
+						<type>singleton</type>
+						<class>Phenom_Activatequote_Model_Observer</class>
+						<method>sales_model_service_quote_submit_after</method>
+					</phenom_activatequote_observer>
+				</observers>
+			</sales_model_service_quote_submit_after>
+		</events>
+	</global>
+	<adminhtml></adminhtml>
+	<admin></admin>
+</config>
